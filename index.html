@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>devflow.com</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sulphur+Point:wght@300;400;700&family=Wire+One&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Slackey&family=Sulphur+Point:wght@300;400;700&family=Wire+One&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Slackey&family=Sulphur+Point:wght@300;400;700&family=Wire+One&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Slackey&family=Sulphur+Point:wght@300;400;700&family=Wire+One&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-900 h-screen relative font-inter-tight tracking-wider">
+    
+    <header class="fixed inset-x-0 top-0 bg-black/20 filter backdrop-blur-sm h-14 flex justify-between items-center z-20">
+        <nav class="flex justify-between w-full items-center px-10 md:px-20">
+            <h2 class="text-white font-bold font-Big-Shoulders-Display">dev.Things</h2>
+            <div class="">
+                <div class="">
+                    <!-- <button id="dropdownButton" data-dropdown-toggle="dropdown" class="dropdown-submition group" type="button" tabindex="0"> -->
+                    <button id="dropdownButton" data-dropdown-toggle="dropdown" class="text-gray-400 hover:underline hover:text-white hover:duration-200 text-xs" type="button" tabindex="0">
+                        Add resources 
+                    </button>
+                </div>
+                <form  id="submitionForm" class="absolute hidden rounded-lg z-30 mt-2 right-0 w-64 h-[300px] text-xs" action="https://formspree.io/f/mwkgzljz" method="post">
+                    <div class="absolute bg-slate-800 rounded-md shadow-2xl h-[300px] border-none">
+                        <ul class=" grid grid-cols-1 box-border mx-auto text-xs text-gray-700 p-2 space-y-2" aria-labelledby="dropdownSubmissionForm">
+                            <li class="space-y-1">
+                                <label for="ressource" class="label">Name</label>
+                                <input type="text" id="ressource" inputmode="text" name="resource" class="input" placeholder="resource name" required />
+                            </li> 
+                            <li class="space-x-2 flex items-center">
+                                <label for="cathegory" class="label">Cathegory :</label>
+                                <select id="cathegory" class="select" name="cathegory">
+                                    <option value="" class="text-[10px]">UI library</option>
+                                    <option value="" class="text-[10px]">Design</option>
+                                    <option value="" class="text-[10px]">code</option>
+                                    <option value="" class="text-[10px]">icons</option>
+                                    <option value="" class="text-[10px]">SVG repo</option>
+                                    <option value="" class="text-[10px]">None</option>
+                                </select>
+                            </li>
+                            <li class="">
+                                <div>
+                                    <label for="description" class="label">Description</label>
+                                    <textarea id="description" cols="30" rows="4" name="description" class="textarea" placeholder="Describe the resource"></textarea>
+                                </div>
+                            </li>
+                            <li class="space-y-1">
+                                <label for="email" class="label">Email</label>
+                                <input type="email" id="email" inputmode="email" class="input" placeholder="please enter your Email" required />
+                            </li> 
+                            <li class="w-full flex justify-center">
+                                <button type="submit" class="bg-indigo-500 hover:bg-indigo-800w-14 text-xs text-white box-border p-2">Submit</button>
+                            </li>
+                        </ul>
+                    </div>
+                </form>  
+            </div>          
+        </nav>
+    </header>
+        <!-- filter bar -->
+        <div class="w-full fixed flex justify-center bottom-6 text-green-400 z-50 space-x-2">
+            <div id="filter-container" class="z-10  h-14 rounded-lg box-border bg-black/10 filter backdrop-blur-sm hover:bg-black/20 transition duration-200">
+              <div class="h-full flex justify-between items-center">
+                <div class="text-green-400">
+                    <button id="filter-button" class="active rounded-lg bg-gray-800 text-xs mx-2 px-3 py-2 flex justify-center items-center opacity-100" type="button">
+                      <small class="">Elements</small>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                      </svg>
+                    </button>
+                </div>
+                <div id="filters-div" class="hidden h-12">
+                    <ul id="filterBtn" class="p-4 text-xs box-border text-gray-700 grid grid-cols-5 gap-2 divide-x divide-dotted" aria-labelledby="dropdownSideButton">
+                        <li data-name="Design" class="box-border text-white hover:text-green-400 cursor-pointer">
+                            design
+                        </li>
+                        <li data-name="code" class="box-border pl-2 text-white hover:text-green-400 cursor-pointer">
+                            Code
+                        </li>
+                        <li data-name="UI library" class="box-border pl-2 text-white hover:text-green-400 cursor-pointer">
+                            UI Library
+                        </li>
+                        <li data-name="svg" class="box-border pl-2 text-white hover:text-green-400 cursor-pointer">
+                            Svg repo
+                        </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>       
+
+    </div>
+    <!-- hero section -->
+    <section class="hero mb-14 flex-col justify-center items-center w-full">
+        <!-- pense a retirer les bordures sur cette div -->
+        <div class=" mt-32 md:mt-48 mx-auto flex flex-col space-y-6 text-center">
+            <h1 class=" text-4xl md:text-6xl font-bold tracking-wide w-1/2 mx-auto">
+                <span class=" bg-clip-text text-transparent font-bold bg-gradient-to-r from-pink-500 to-indigo-500 font-LostSignal">Everything you need in one place</span> 
+            </h1>
+            <div class="w-full">
+                <p class="text-white md:text-sm w-full text-xs box-border md:px-0 px-10">
+                    <span class="font-semibold font-Big-Shoulders-Display text-green-500">dev.Things</span> 
+                    is a collaborative resource gallery powered by developers for developers ranging 
+                    from SVG images,
+                </p>
+                <p class="text-white md:text-sm text-xs px-10 mt-2 md:mt-2 md:px-0">
+                    Icon and inspiration search to the most suitable framework.
+                </p>
+            </div>
+        </div>
+    </section>
+    <div class="text-center mb-6 md:w-full text-xs ">
+        <p class="text-indigo-400 font-bold">
+            BY DEVS FOR DEVS 
+        </p>
+    </div>
+    <div class="w-full mb-4 h-20 flex space-x-6 overflow-hidden whitespace-nowrap font-sulphur font-light">
+        <p class="animation">inpiration design development deployment</p>
+        <p class="animation" >inpiration design development deployment</p>
+        <p class="animation"   aria-hidden="true">inpiration design development deployment</p>
+    </div>
+
+    <!-- ressources section -->
+    <section class="flex justify-center">
+        <!-- card creation -->
+        <div class="w-2/3 box-border py-10 px-">
+            <ul id="resources-cards" class="grid grid-cols-1 md:grid-cols-4 gap-2">
+                <li data-name="UI library" class="gridRessources relative">
+                    <div>
+                        <img src="./assets/sailboat_img.jfif" class="w-full object-cover" alt="sailboat representative image" />
+                    </div>
+                    <div class="text-white  absolute top-2 left-2">
+                        <small class="badges" aria-label="ressources type">UI library</small>
+                    </div>
+                    <div class="opacity-0 hover:opacity-100">
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/60"></div>
+                        <div class="absolute inset-x-0 bottom-0 z-20 p-4 flex justify-between items-center text-white">
+                            <p class=" text-[10px] text-wrap">Sailboat is a tailwindcss UI components librairy</p>
+                            <div class="p-1 rounded-full bg-white/10 flex justify-center items-center">
+                                <a href="https://sailboatui.com/" target="_blank" rel="noopener no follow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                                        class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline 
+                                        points="7 7 17 7 17 17"></polyline>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-name="UI library" class="gridRessources relative">
+                    <div>
+                        <img src="./assets/flowbite_img.jfif" class="w-full h-full object-cover" alt="flowbite representative image" />
+                    </div>
+                    <div class="text-white  absolute top-2 left-2">
+                        <small class="badges" aria-label="ressources type">UI library</small>
+                    </div>
+                    <div class="opacity-0 hover:opacity-100 h-full">
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/60"></div>
+                        <div class="absolute inset-x-0 bottom-0 z-20 p-4 flex justify-between items-center text-white">
+                            <p class=" text-[10px] text-wrap">Flowbite is a UI components librairy tailwindcss</p>
+                            <div class="p-1 rounded-full bg-white/10 flex justify-center items-center">
+                                <a href="https://flowbite.com/" target="_blank" rel="noopener no follow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                                    class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline 
+                                    points="7 7 17 7 17 17"></polyline>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-name="UI library" class="gridRessources relative">
+                    <div class="w-full h-full">
+                        <img src="./assets/skeleton-ui.jpg" class="w-full h-full object-cover" alt="skeleton representative image" />
+                    </div>
+                    <div class="text-white  absolute top-2 left-2">
+                        <small class="badges" aria-label="ressources type">UI library</small>
+                    </div>
+                    <div class="opacity-0 hover:opacity-100 h-full">
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/60"></div>
+                        <div class="absolute inset-x-0 bottom-0 z-20 p-4 flex justify-between items-center text-white">
+                            <p class=" text-[10px] text-wrap">Skeleton UI is a ui toolkit for svelte and tailwindcss</p>
+                            <div class="p-1 rounded-full bg-white/10 flex justify-center items-center">
+                                <a href="https://skeleton.com/" target="_blank" rel="noopener no follow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                                    class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline 
+                                    points="7 7 17 7 17 17"></polyline>
+                                   </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-name="UI library" class="gridRessources relative">
+                    <div class="w-full h-full">
+                        <img src="./assets/codepen_img.jfif" class="w-full h-full object-cover" alt="codepen representative image" />
+                    </div>
+                    <div class="text-white  absolute top-2 left-2">
+                        <small class="badges" aria-label="ressources type">UI library</small>
+                    </div>
+                    <div class="opacity-0 hover:opacity-100 h-full">
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/60"></div>
+                        <div class="absolute inset-x-0 bottom-0 z-20 p-4 flex justify-between items-center text-white">
+                            <p class=" text-[10px] text-wrap">codepen is an collaborative UI component website</p>
+                            <div class="p-1 rounded-full bg-white/10 flex justify-center items-center">
+                                <a href="https://codepen.com/" target="_blank" rel="noopener no follow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                                    class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline 
+                                    points="7 7 17 7 17 17"></polyline>
+                                   </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-name="svg" class="gridRessources relative">
+                    <div class="w-full h-full">
+                        <img src="./assets/unDraw.jfif" class=" w-full h-full object-cover" alt="unDraw representative image" />
+                    </div>
+                    <div class="text-white  absolute top-2 left-2">
+                        <small class="badges" aria-label="ressources type">svg</small>
+                    </div>
+                    <div class="opacity-0 hover:opacity-100 h-full">
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/60"></div>
+                        <div class="absolute inset-x-0 bottom-0 z-20 p-4 flex justify-between items-center text-white">
+                            <p class=" text-[10px] text-wrap">undraw is a svg repo usefull for visual illustrations in app</p>
+                            <div class="p-1 rounded-full bg-white/10 flex justify-center items-center">
+                                <a href="https://unDraw.com/" target="_blank" rel="noopener no follow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                                    class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline 
+                                    points="7 7 17 7 17 17"></polyline></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-name="Design" class="gridRessources relative">
+                    <div class="w-full h-full">
+                        <img src="./assets/landingfolio_img.png" class="w-full h-full object-cover" alt="landingfolio representative image" />
+                    </div>
+                    <div class="text-white  absolute top-2 left-2">
+                        <small class="badges" aria-label="ressources type">Design</small>
+                    </div>
+                    <div class="opacity-0 hover:opacity-100 h-full">
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/60"></div>
+                        <div class="absolute inset-x-0 bottom-0 z-20 p-4 flex justify-between items-center text-white">
+                            <p class=" text-[10px] text-wrap">landingfolio is a ui website design inspirations</p>
+                            <div class="p-1 rounded-full bg-white/10 flex justify-center items-center">
+                                <a href="https://landingfolio.com/" target="_blank" rel="noopener no follow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                                    class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline 
+                                    points="7 7 17 7 17 17"></polyline>
+                                   </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-name="Design" class="gridRessources relative">
+                    <div class="w-full h-full">
+                        <img src="./assets/awwwards_img.jfif" class="w-full h-full object-cover" alt="awwwards website representative image" />
+                    </div>
+                    <div class="text-white  absolute top-2 left-2">
+                        <small class="badges" aria-label="ressources type">Design</small>
+                    </div>
+                    <div class="opacity-0 hover:opacity-100 h-full">
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/60"></div>
+                        <div class="absolute inset-x-0 bottom-0 z-20 p-4 flex justify-between items-center text-white">
+                            <p class=" text-[10px] text-wrap">Awwwards is a website for design inspirations</p>
+                            <div class="p-1 rounded-full bg-white/10 flex justify-center items-center">
+                                <a href="https://awwwards.com/" target="_blank" rel="noopener no follow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                                    class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline 
+                                    points="7 7 17 7 17 17"></polyline>
+                                   </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-name="code" class="gridRessources relative">
+                    <div class="w-full h-full">
+                        <img src="./assets/codesandbox_img.jfif" class="w-full h-full object-cover" alt="codesandbox representative image" />
+                    </div>
+                    <div class="text-white  absolute top-2 left-2">
+                        <small class="badges" aria-label="ressources type">code</small>
+                    </div>
+                    <div class="opacity-0 hover:opacity-100 h-full">
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/60"></div>
+                        <div class="absolute inset-x-0 bottom-0 z-20 p-4 flex justify-between items-center text-white">
+                            <p class=" text-[10px] text-wrap">Codesandbox is an online webapp code editor</p>
+                            <div class="p-1 rounded-full bg-white/10 flex justify-center items-center">
+                                <a href="https://codesandbox.io/" target="_blank" rel="noopener no follow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                                    class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline 
+                                    points="7 7 17 7 17 17"></polyline>
+                                   </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</body>
+<script src="app.js"></script>
+</html>

@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .animation {
+        @apply capitalize animate-scrolling text-white text-6xl
+    }
+    .dropdown-submition {
+        @apply text-white bg-indigo-500 hover:bg-indigo-800 hover:text-gray-300 font-medium rounded-full text-xs px-4 py-2 text-center inline-flex 
+        items-center
+      }    
+    .input {
+        @apply bg-gray-700 text-gray-200 text-xs box-border
+        block w-full placeholder-gray-400 focus:border-blue-50 p-1 focus:ring-1 focus:ring-indigo-500 
+    }
+    .label {
+        @apply block mb-2 text-xs font-medium text-gray-400 
+    }
+    .select{
+        @apply w-[38%] rounded-full p-1 disabled:cursor-not-allowed bg-gray-700 text-gray-200 text-xs focus:ring-1 focus:ring-indigo-500
+        /* @apply block w-[38%] rounded-full p-1 disabled:cursor-not-allowed bg-gray-700 text-gray-400 */
+    }
+    .textarea{
+        @apply block w-full bg-gray-700 border-gray-300 shadow-sm box-border p-1 text-gray-200 focus:ring-1 focus:ring-indigo-500 disabled:cursor-not-allowed
+    }
+    .grid-ressources{
+        @apply relative mx-auto max-w-sm max-h-[200px] overflow-hidden
+    }
+}
+
+.badges{
+    @apply rounded-md border border-white bg-black/40 px-2 py-1 text-xs font-semibold text-white text-center font-sulphur
+}
+
+@layer base {
+    @font-face {
+        font-family: 'LostSignal';
+        font-style: normal;
+        font-weight: normal;
+        font-display: swap;
+        src: url(./assets/fonts/LostSignal-Medium.woff2) format('woff2');
+      }
+  }
+
