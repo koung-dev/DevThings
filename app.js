@@ -1,3 +1,4 @@
+// const { default: SplitType } = require("split-type");
 
 const dropdownButton = document.getElementById('dropdownButton');
 const submitionForm = document.getElementById('submitionForm');
@@ -6,6 +7,7 @@ const filterContainer = document.getElementById('filter-container');
 const filters = document.getElementById('filters-div');
 const dropSideE= document.querySelectorAll('#filterBtn li')
 const filterableCards= document.querySelectorAll('.gridRessources')
+
 
 // show all the ressources by clicking on the Elements button
 
@@ -61,5 +63,15 @@ const filterCards = (e) => {
 
 // // add click event listener to each selecting li element
 dropSideE.forEach(li => li.addEventListener('click',filterCards))
+
+let heroSecondText = new SplitType('#hero-second-text', {types: 'words, chars'})
+
+// hero section text animation
+heroSecondText.chars.forEach((char)=>{
+  gsap.fromTo('.char',{ opacity:0.5},{opacity:1,stagger:0.02}
+  )})
+
+gsap.fromTo('.card-container',{ y:50},{ y:0, duration:3, ease: "power1.in"})
+
 
 
