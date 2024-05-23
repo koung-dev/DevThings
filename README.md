@@ -1,3 +1,3 @@
 # This is a small website built in vanilla javascript, HTML & tailwindcss
-![REST API](https://devthings.netlify.app/)
+![click on this to get to my website](https://devthings.netlify.app/)
 
